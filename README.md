@@ -28,6 +28,15 @@ Access was validated by authenticating as Jordan, mapping the Finance SMB share,
 
 **Result:** Jordan received the correct Finance access after onboarding.
 
+### Joiner Evidence
+
+**1.New user account created in the Finance OU**
+![Joiner user created](01-joiner-user-created.png)
+**2.Finance security group assigned to provide role-based access**
+![Finance group assignment](02-joiner-finance-group.png)
+**3.Finance access validated by mapping the share and creating a test file**
+![Finance access validated](03-joiner-finance-access-validated.png)
+
 ## Mover Phase
 Jordan was transferred from Finance to HR.
 
@@ -38,6 +47,17 @@ Authorization testing confirmed that Jordan could no longer access the Finance s
 Jordan was then able to authenticate to the HR share and successfully create a test file.
 
 **Result:** Previous departmental access was revoked and new role-based access was successfully granted.
+
+### Mover Evidence
+
+**4. Finance group access removed and HR security group assigned**
+![HR group assignment](04-mover-hr-group.png)
+**5. User account moved from the Finance OU to the HR OU**
+![Moved to HR OU](05-mover-hr-ou.png)
+**6. Previous Finance access successfully revoked**
+![Finance access denied](06-mover-finance-access-denied.png)
+**7. New HR access validated by creating a test file**
+![HR access validated](07-mover-hr-access-validated.png)
 
 ## Leaver Phase
 Jordan's Active Directory account was disabled as part of the offboarding process.
@@ -53,6 +73,15 @@ Windows returned:
 `This user can't sign in because this account is currently disabled.`
 
 **Result:** The disabled account could no longer authenticate to organizational resources.
+
+### Leaver Evidence
+
+**8. User account disabled during the offboarding process**
+![Account disabled](08-leaver-account-disabled.png)
+**9. HR security group membership removed**
+![Group access removed](09-leaver-group-access-removed.png)
+**10. Disabled account prevented from authenticating to the HR share**
+![Disabled account login denied](10-leaver-login-denied.png)
 
 ## IAM Concepts Demonstrated
 - Joiner-Mover-Leaver lifecycle management
